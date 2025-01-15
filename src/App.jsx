@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchBooks } from "./utils/api";
 import Card from "./components/Card";
 
-const categories = ["lord of the rings"];
-
 function App() {
-  // const [booksByCategory, setBooksByCategory] = useState({});
   const [query, setQuery] = useState("");
   const [books, setBooks] = useState([]);
 
@@ -21,21 +18,6 @@ function App() {
       });
   };
 
-  // useEffect(() => {
-  //   categories.forEach((category) => {
-  //     fetchBooks(category)
-  //       .then((data) => {
-  //         setBooksByCategory((prevState) => ({
-  //           ...prevState,
-  //           [category]: data.items || [],
-  //         }));
-  //       })
-  //       .catch((error) =>
-  //         console.error(`Error fetching books for ${category}:`, error)
-  //       );
-  //   });
-  // }, []);
-
   const truncateDescription = (text, wordLimit) => {
     const words = text.split("");
     if (words.length > wordLimit) {
@@ -45,8 +27,7 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-900 px-10 py-10">
-      {/* {categories.map((category) => ( */}
+    <div className="bg-gray-900 px-10 py-10 h-[100vh]">
       <div className="mb-5">
         <input
           type="text"
@@ -56,15 +37,13 @@ function App() {
           className="w-full p-2 text-lg text-gray-900 rounded-lg"
         />
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px
-        -4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={handleSearch}
         >
           Search
         </button>
       </div>
       <div className="flex flex-col gap-10">
-        {/* {booksByCategory[category]?.slice(0, 4).map((book) => ( */}
         {books.slice(0, 4).map((book) => (
           <Card
             title={book.volumeInfo?.title}
@@ -78,9 +57,7 @@ function App() {
             category={book.volumeInfo?.categories}
           />
         ))}
-        {/* ))} */}
       </div>
-      {/* ))} */}
     </div>
   );
 }

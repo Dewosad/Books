@@ -26,7 +26,7 @@ const Card = ({
           <h1 className="text-white">Released Date: {releaseDate}</h1>
 
           <h1 className="text-white">Total Pages: {Pages}</h1>
-          <h1 className="text-white">{rating}</h1>
+          <h1 className="text-white">Rating: {rating}</h1>
           <h1 className="text-white">type: {type}</h1>
           <h1 className="text-white">Categories: {category}</h1>
         </div>
