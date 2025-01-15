@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "sonner";
 
-export const BASE_URL = import.meta.env.VITE_APP_BACKEND_API_KEY;
+export const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 const https = axios.create({
   baseURL: BASE_URL,
